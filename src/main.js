@@ -28,7 +28,6 @@ let source;
 let running = false;
 let audioReady = false;
 let lastFrame = 0;
-let lastPulse = 0;
 
 function setupAnimations() {
   animate(".topbar", { opacity: [0, 1], y: [-14, 0] }, { duration: 0.7, ease: "easeOut" });
@@ -72,10 +71,6 @@ function updateStats() {
   statX.textContent = engine.pulse_x().toFixed(2);
   statY.textContent = engine.pulse_y().toFixed(2);
   statDispersion.textContent = engine.pulse_dispersion().toFixed(2);
-  if (Math.abs(pulse - lastPulse) > 0.08) {
-    animate(statPulse, { scale: [1.35, 1], color: ["#ff6845", "#a7d6de"] }, { duration: 0.35, ease: "easeOut" });
-    lastPulse = pulse;
-  }
 }
 
 async function resetSession() {
