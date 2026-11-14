@@ -1,0 +1,41 @@
+use sonificator::Sonificator;
+use wasm_bindgen::prelude::*;
+
+#[wasm_bindgen]
+pub struct WasmSonificator {
+    inner: Sonificator,
+}
+
+#[wasm_bindgen]
+impl WasmSonificator {
+    #[wasm_bindgen(constructor)]
+    pub fn new(sample_rate: u32) -> Self {
+        Self {
+            inner: Sonificator::new(sample_rate),
+        }
+    }
+
+    pub fn push_frame(&mut self, rgba: &[u8], width: u32, height: u32) {
+        self.inner.push_frame(rgba, width, height);
+    }
+
+    pub fn render(&mut self, frames: usize) -> Vec<f32> {
+        self.inner.render(frames)
+    }
+
+    pub fn orange_pulse(&self) -> f32 {
+        self.inner.features().orange_pulse
+    }
+
+    pub fn pulse_x(&self) -> f32 {
+        self.inner.features().pulse_x
+    }
+
+    pub fn pulse_y(&self) -> f32 {
+        self.inner.features().pulse_y
+    }
+
+    pub fn pulse_dispersion(&self) -> f32 {
+        self.inner.features().pulse_dispersion
+    }
+}
