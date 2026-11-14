@@ -1230,6 +1230,7 @@ checksum = "149309498a5f7334b12ddae0cad8aba81ce785fe91755068867e017cf98fee46"
 [[package]]
 name = "sonificator"
 version = "0.1.0"
+source = "git+https://github.com/neo-universe-2026/sonificator.git#0962b5be8b96864c1dca21082746e3eeb827e5d3"
 dependencies = [
  "tunes",
 ]
