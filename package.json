@@ -4,8 +4,8 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "dev": "pnpm run build:wasm && vite",
-    "build": "pnpm run build:wasm && vite build",
+    "dev": "node scripts/build-wasm.mjs && vite",
+    "build": "node scripts/build-wasm.mjs && vite build",
     "build:wasm": "node scripts/build-wasm.mjs",
     "preview": "vite preview"
   },
