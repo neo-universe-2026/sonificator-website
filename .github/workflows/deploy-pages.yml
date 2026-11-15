@@ -37,8 +37,24 @@ jobs:
         with:
           targets: wasm32-unknown-unknown
 
+      - name: Cache cargo
+        uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: wasm
+
+      - name: Get wasm-bindgen version from Cargo.lock
+        run: |
+          version=$(grep -A1 '^name = "wasm-bindgen"$' wasm/Cargo.lock | awk '/^version/ {print $3; exit}' | tr -d '"')
+          if [ -z "$version" ]; then
+            echo "could not find wasm-bindgen version in wasm/Cargo.lock" >&2
+            exit 1
+          fi
+          echo "WASM_BINDGEN_VERSION=$version" >> "$GITHUB_ENV"
+
       - name: Install wasm-bindgen
-        run: cargo install wasm-bindgen-cli --version 0.2.130
+        uses: taiki-e/install-action@v2
+        with:
+          tool: wasm-bindgen-cli@${{ env.WASM_BINDGEN_VERSION }}
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile

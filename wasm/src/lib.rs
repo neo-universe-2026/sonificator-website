@@ -24,7 +24,11 @@ impl WasmSonificator {
     }
 
     pub fn orange_pulse(&self) -> f32 {
-        self.inner.features().orange_pulse
+        self.inner.features().pulse
+    }
+
+    pub fn pulse(&self) -> f32 {
+        self.inner.features().pulse
     }
 
     pub fn pulse_x(&self) -> f32 {
@@ -37,5 +41,29 @@ impl WasmSonificator {
 
     pub fn pulse_dispersion(&self) -> f32 {
         self.inner.features().pulse_dispersion
+    }
+
+    pub fn brightness(&self) -> f32 {
+        self.inner.features().brightness
+    }
+
+    pub fn contrast(&self) -> f32 {
+        self.inner.features().contrast
+    }
+
+    pub fn saturation(&self) -> f32 {
+        self.inner.features().saturation
+    }
+
+    pub fn hue(&self) -> f32 {
+        self.inner.features().hue
+    }
+
+    pub fn warmth(&self) -> f32 {
+        self.inner.features().warmth
+    }
+
+    pub fn motion(&self) -> f32 {
+        self.inner.features().motion
     }
 }

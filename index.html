@@ -39,12 +39,12 @@
             <span class="eyebrow">02 / VISUAL FIELD</span>
           </div>
           <div class="panel-heading">
-            <div><h2 id="source-name">Orbit / CO₂ globe</h2><span class="source-caption">ACTIVE SOURCE / ATMOSPHERIC DRIFT</span></div>
+            <div><h2 id="source-name">Orbit / CO₂ globe</h2><span id="source-caption" class="source-caption">ACTIVE SOURCE / ATMOSPHERIC DRIFT</span></div>
             <span class="live-pill"><span></span> LIVE ANALYSIS</span>
           </div>
           <div class="video-wall">
             <div class="video-wrap primary-video">
-              <video id="video" muted playsinline loop crossorigin="anonymous"><source src="assets/orbit.mp4" type="video/mp4" /></video>
+              <video id="video" src="assets/orbit.mp4" muted playsinline loop></video>
               <canvas id="canvas" aria-hidden="true"></canvas>
               <div class="video-overlay"><span id="timecode">00:00</span><span>ACTIVE / RGBA GRID</span></div>
               <button id="start-button" class="start-button" type="button"><span class="play-icon">▶</span><span>START SESSION</span></button>
@@ -57,7 +57,7 @@
           </div>
           <div class="video-footer"><span id="session-state">Ready when you are.</span><span id="sample-rate">48,000 HZ / STEREO</span></div>
           <div class="stats-grid" aria-label="Live WASM analysis">
-            <div class="stat-card"><span class="stat-label">EMISSION <i></i></span><strong id="stat-pulse">0.00</strong><small>ORANGE PULSE</small></div>
+            <div class="stat-card"><span class="stat-label">EMISSION <i></i></span><strong id="stat-pulse">0.00</strong><small>VISUAL PULSE</small></div>
             <div class="stat-card"><span class="stat-label">POSITION X</span><strong id="stat-x">0.50</strong><small>NORMALIZED</small></div>
             <div class="stat-card"><span class="stat-label">POSITION Y</span><strong id="stat-y">0.50</strong><small>NORMALIZED</small></div>
             <div class="stat-card"><span class="stat-label">DISPERSION</span><strong id="stat-dispersion">0.00</strong><small>SPATIAL SPREAD</small></div>
@@ -68,8 +68,8 @@
           <div class="section-bar"><span class="eyebrow">03 / INSTRUMENT</span><span class="panel-number">AUDIO</span></div>
           <h2>Select a signal</h2>
           <div class="source-list">
-            <button class="source-option active" data-src="assets/orbit.mp4" data-name="Orbit / CO₂ globe" type="button"><span class="source-index">01</span><span><strong>ORBIT</strong><small>Atmospheric drift</small></span><span class="source-arrow">↗</span></button>
-            <button class="source-option" data-src="assets/zoom.mp4" data-name="Zoom / CO₂ globe" type="button"><span class="source-index">02</span><span><strong>ZOOM</strong><small>Particle emergence</small></span><span class="source-arrow">↗</span></button>
+            <button class="source-option active" data-src="assets/orbit.mp4" data-name="Orbit / CO₂ globe" data-caption="ACTIVE SOURCE / ATMOSPHERIC DRIFT" type="button"><span class="source-index">01</span><span><strong>ORBIT</strong><small>Atmospheric drift</small></span><span class="source-arrow">↗</span></button>
+            <button class="source-option" data-src="assets/zoom.mp4" data-name="Zoom / CO₂ globe" data-caption="ACTIVE SOURCE / PARTICLE EMERGENCE" type="button"><span class="source-index">02</span><span><strong>ZOOM</strong><small>Particle emergence</small></span><span class="source-arrow">↗</span></button>
           </div>
           <div class="mapping-card"><span class="eyebrow">SIGNAL ROUTING</span><div class="mapping-row"><span class="mapping-dot orange"></span><span>EMISSION</span><strong>TEMPO + ENERGY</strong></div><div class="mapping-row"><span class="mapping-dot blue"></span><span>POSITION</span><strong>PITCH + PAN</strong></div><div class="mapping-row"><span class="mapping-dot cream"></span><span>DISPERSION</span><strong>TEXTURE</strong></div></div>
         </aside>
